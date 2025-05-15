@@ -402,11 +402,11 @@ export default function LungSoundAnalyzerApp() {
       // Simulate recording time counter
       const timer = setInterval(() => {
         setRecordingTime(prev => {
-          if (prev >= 15) {
+          if (prev >= 5) {
             clearInterval(timer);
             setRecording(false);
             setRecordingComplete(true);
-            return 15;
+            return 5;
           }
           return prev + 1;
         });
@@ -469,7 +469,7 @@ export default function LungSoundAnalyzerApp() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '32px' }}>
             <h2 style={styles.stepTitle}>Step 1: Record Lung Sound</h2>
             <p style={styles.stepDescription}>
-              Select a position and record lung sounds for 10-15 seconds.
+              Select a position and record lung sounds for 5 seconds.
               Hold the microphone close to the patient's chest.
             </p>
             
@@ -512,12 +512,12 @@ export default function LungSoundAnalyzerApp() {
                 {recording ? (
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <p style={styles.recordingActive}>Recording in progress...</p>
-                    <p style={{ fontSize: '14px' }}>{recordingTime} sec / 15 sec</p>
+                    <p style={{ fontSize: '14px' }}>{recordingTime} sec / 5 sec</p>
                     <div style={styles.progressBarContainer}>
                       <div 
                         style={{
                           ...styles.progressBarFill,
-                          width: `${(recordingTime / 15) * 100}%`
+                          width: `${(recordingTime / 5) * 100}%`
                         }}
                       ></div>
                     </div>
